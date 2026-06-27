@@ -86,6 +86,7 @@ Web_Design_Project/
 
 ## 🎨 Design — "Control Panel" UI
 
+---
 This isn't a default Bootstrap-blue theme — it's a deliberate visual identity built around the subject matter: a **dark "device control panel" chrome** (navbar + footer) wrapping a bright, calm showroom, with a single warm **ember/amber glow** as the accent color, meant to evoke the glow of a smart device powering on. A cool **teal "signal"** color is reserved for connectivity/status indicators (in-stock pills, online states), separate from the warm action color — borrowed straight from how real smart-home apps (Hue, Nest, Ring) use color to mean something, not just decorate.
 
 - **Typography** — `Space Grotesk` for headings (a little technical, a little geometric — fits "smart" hardware), `Manrope` for body text. Every page now actually renders with these fonts; previously several pages quietly fell back to Arial, and even the pages that *loaded* custom fonts never applied them anywhere.
