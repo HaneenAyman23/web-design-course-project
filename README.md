@@ -3,6 +3,7 @@
 A fully responsive, multi-page e-commerce website for smart home devices (security cameras, thermostats, smart locks, LED bulbs, and more), built with **HTML5, CSS3, Bootstrap 5, and JavaScript**.
 
 🔗 **Live Demo:** [https://web-design-course-project.vercel.app/](https://web-design-course-project.vercel.app/)
+
 📂 **Repository:** [https://github.com/HaneenAyman23/web-design-course-project](https://github.com/HaneenAyman23/web-design-course-project)
 
 ---
