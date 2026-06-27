@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Security Camera - Smart Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Very Simple Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .detail-shell {
+            max-width: 1200px;
+            margin: 110px auto 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .back-link {
+            color: #b4621a;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 8px 0;
+        }
+        
+        .product-layout {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .product-layout {
+                flex-direction: column;
+            }
+        }
+        
+        .product-image {
+            flex: 1;
+        }
+        
+        .product-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .product-info {
+            flex: 1;
+        }
+        
+        .product-title {
+            font-size: 28px;
+            color: #222;
+            margin: 0 0 10px 0;
+        }
+        
+        .rating {
+            color: #ff9900;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 32px;
+            color: #b4621a;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        
+        .stock {
+            background: #e6ffe6;
+            color: #006600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        
+        .quantity {
+            margin: 20px 0;
+        }
+        
+        .quantity label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .qty-btn:hover {
+            background: #e0e0e0;
+        }
+        
+        .qty-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .add-cart-btn {
+            background: #e8862e;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .add-cart-btn:hover {
+            background: #ffa64d;
+        }
+        
+        .message {
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .features {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .feature i {
+            color: #b4621a;
+            width: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            padding: 20px;
+        }
+
+    
+        /* Product details specific */
+        .product-highlights {
+            margin-top: 30px;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg site-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-glow"><i class="fas fa-bolt"></i></span>
+                Smart Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="profile.html" class="nav-icon-btn" aria-label="My Profile">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="cart.html" class="nav-icon-btn position-relative" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" id="main">
+        <!-- Back Link -->
+        <a href="products.html" class="back-link">
+            <i class="fas fa-arrow-left me-2"></i>Back to Products
+        </a>
+        
+        <div class="product-layout">
+            <!-- Product Image -->
+            <div class="product-image">
+                <img id="productImage" src="../assets/images/Smart Security Camera.jpg" alt="Smart Security Camera">
+            </div>
+            
+            <!-- Product Information -->
+            <div class="product-info">
+                <h1 class="product-title" id="productTitle">Smart Security Camera Pro</h1>
+                
+                <div class="stock" id="productStock">
+                    <i class="fas fa-check-circle"></i> In Stock: 24 units
+                </div>
+                
+                <div class="price" id="productPrice">$149.99</div>
+                
+                <p class="description" id="productDescription">
+                    Protect your home with our 4K Smart Security Camera. Features night vision, 
+                    motion detection, and real-time alerts. Works with Alexa and Google Home.
+                    Easy installation, weatherproof design.
+                </p>
+                
+                <!-- Quantity Selector -->
+                <div class="quantity">
+                    <label>Quantity:</label>
+                    <div class="quantity-control">
+                        <button class="qty-btn" onclick="changeQty(-1)">-</button>
+                        <input type="number" id="quantity" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn" onclick="changeQty(1)">+</button>
+                    </div>
+                </div>
+                
+                <!-- Add to Cart Button -->
+                <button class="add-cart-btn" onclick="handleAddToCart()">
+                    <i class="fas fa-cart-plus"></i> ADD TO CART
+                </button>
+                
+                <!-- Success Message -->
+                <div id="message" class="message">
+                    Product added to cart!
+                </div>
+                
+                <!-- Features -->
+                <div class="features">
+                    <p style="font-weight: bold; margin-bottom: 15px; font-size: 18px;">Key Features:</p>
+                    <div id="productFeatures"></div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="highlight-box">
+                    <h4><i class="fas fa-info-circle text-primary me-2"></i>Product Details</h4>
+                    <div id="productDetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="fas fa-bolt"></i> Smart Home</h5>
+                    <p class="small mb-0">Making homes smarter, safer, and more efficient.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <div>
+                        <a href="index.html" class="d-block mb-2">Home</a>
+                        <a href="products.html" class="d-block mb-2">Products</a>
+                        <a href="about.html" class="d-block mb-2">About</a>
+                        <a href="faqs.html" class="d-block">FAQs</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact</h5>
+                    <p class="small mb-1"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
+                    <p class="small mb-0"><i class="fas fa-envelope me-2"></i> support@smarthome.com</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="small mb-0">© 2024 Smart Home. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/cart.js"></script>
+
+    <script>
+        // Read the product id from the URL (?id=2). Defaults to 1.
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = Number(urlParams.get('id')) || 1;
+        const currentProduct = findProduct(productId) || PRODUCTS[0];
+
+        // Render the page from the product catalog (cart.js)
+        function renderProduct() {
+            document.title = currentProduct.name + ' - Smart Home';
+            document.getElementById('productImage').src = currentProduct.image;
+            document.getElementById('productImage').alt = currentProduct.name;
+            document.getElementById('productTitle').textContent = currentProduct.name;
+            document.getElementById('productStock').innerHTML =
+                `<i class="fas fa-check-circle"></i> In Stock: ${currentProduct.stock} units`;
+
+            let priceHtml = `$${currentProduct.price.toFixed(2)}`;
+            if (currentProduct.oldPrice) {
+                priceHtml += ` <span class="old-price">$${currentProduct.oldPrice.toFixed(2)}</span>`;
+            }
+            document.getElementById('productPrice').innerHTML = priceHtml;
+            document.getElementById('productDescription').textContent = currentProduct.description;
+
+            const featuresEl = document.getElementById('productFeatures');
+            featuresEl.innerHTML = currentProduct.features.map(f => `
+                <div class="feature">
+                    <i class="fas ${f.icon}"></i>
+                    <span>${f.text}</span>
+                </div>
+            `).join('');
+
+            const detailsEl = document.getElementById('productDetails');
+            detailsEl.innerHTML = Object.entries(currentProduct.details).map(([label, value]) => `
+                <p><strong>${label}:</strong> ${value}</p>
+            `).join('');
+        }
+
+        // Change quantity
+        function changeQty(amount) {
+            let input = document.getElementById('quantity');
+            let current = Number(input.value);
+            let newValue = current + amount;
+
+            if (newValue < 1) newValue = 1;
+            if (newValue > 10) newValue = 10;
+
+            input.value = newValue;
+        }
+
+        // Add to cart (uses shared cart.js + product catalog)
+        function handleAddToCart() {
+            let qty = Number(document.getElementById('quantity').value);
+
+            addToCart(currentProduct.id, qty);
+
+            let message = document.getElementById('message');
+            message.textContent = qty + ' item(s) added to cart!';
+            message.style.display = 'block';
+
+            setTimeout(function() {
+                message.style.display = 'none';
+            }, 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', renderProduct);
+    </script>
+</body>
+</html>

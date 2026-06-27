@@ -1,11 +1,9 @@
-# web-design-course-project
 # 🏠 Smart Home — E-Commerce Website
 
 A fully responsive, multi-page e-commerce website for smart home devices (security cameras, thermostats, smart locks, LED bulbs, and more), built with **HTML5, CSS3, Bootstrap 5, and JavaScript**.
 
-🔗 **Live Demo:** [https://web-design-course-project.vercel.app/]
-
-📂 **Repository:** [https://github.com/HaneenAyman23/web-design-course-project]
+🔗 **Live Demo:** [https://web-design-course-project.vercel.app/](https://web-design-course-project.vercel.app/)
+📂 **Repository:** [https://github.com/HaneenAyman23/web-design-course-project](https://github.com/HaneenAyman23/web-design-course-project)
 
 ---
 
@@ -19,18 +17,18 @@ This project was built to fulfill the requirements of a final assignment demonst
 
 | # | Page | File | Description |
 |---|------|------|-------------|
-| 1 | Home | `index.html` | Hero banner, featured products, category highlights, newsletter signup |
-| 2 | Products | `products.html` | All products with **category filtering and price/name sorting** |
-| 3 | Product Detail | `product-detail.html` | Dynamic product view (`?id=`) with quantity selector and "Add to Cart" |
-| 4 | Shopping Cart | `cart.html` | Live cart items, quantity controls, item removal, and order summary |
-| 5 | Checkout | `checkout.html` | Shipping/payment form with real order summary, validation, and order placement |
-| 6 | User Profile | `profile.html` | Account info, order history, and saved items — tabbed interface |
+| 1 | Home | `webpages/index.html` | Hero banner, featured products, category highlights, newsletter signup |
+| 2 | Products | `webpages/products.html` | All products with **category filtering and price/name sorting** |
+| 3 | Product Detail | `webpages/product-detail.html` | Dynamic product view (`?id=`) with quantity selector and "Add to Cart" |
+| 4 | Shopping Cart | `webpages/cart.html` | Live cart items, quantity controls, item removal, and order summary |
+| 5 | Checkout | `webpages/checkout.html` | Shipping/payment form with real order summary, validation, and order placement |
+| 6 | User Profile | `webpages/profile.html` | Account info, order history, and saved items — tabbed interface |
 
 ## 🎁 Bonus Pages
 
-- **About Us** — `about.html`
-- **FAQs** — `faqs.html`
-- **Order Confirmation** — `order-confirmation.html`
+- **About Us** — `webpages/about.html`
+- **FAQs** — `webpages/faqs.html`
+- **Order Confirmation** — `webpages/order-confirmation.html`
 
 ## ⚡ JavaScript Features (Bonus)
 
@@ -62,31 +60,58 @@ This project was built to fulfill the requirements of a final assignment demonst
 ## 📁 Project Structure
 
 ```
-Web_Design_Project/
-├── index.html
-├── about.html
-├── faqs.html
-├── products.html
-├── product-detail.html
-├── cart.html
-├── checkout.html
-├── order-confirmation.html
-├── profile.html
-├── style.css
-├── cart.js
-├── Door Lock.jpg
-├── Led Blubs.jpg
-├── Robot Vacuum.jpg
-├── Smart Plug 4-Pack.jpg
-├── Smart Security Camera.jpg
-├── Smart Smoke Detector.jpg
-└── Thermostat.jpg
+web-design-course-project/
+├── index.html                  ← redirects to webpages/index.html (keeps the live root URL working)
+├── README.md
+├── webpages/
+│   ├── index.html              ← actual homepage
+│   ├── about.html
+│   ├── faqs.html
+│   ├── products.html
+│   ├── product-detail.html
+│   ├── cart.html
+│   ├── checkout.html
+│   ├── order-confirmation.html
+│   └── profile.html
+└── assets/
+    ├── css/
+    │   └── style.css
+    ├── js/
+    │   └── cart.js
+    └── images/
+        ├── Door Lock.jpg
+        ├── Led Blubs.jpg
+        ├── Robot Vacuum.jpg
+        ├── Smart Plug 4-Pack.jpg
+        ├── Smart Security Camera.jpg
+        ├── Smart Smoke Detector.jpg
+        └── Thermostat.jpg
+```
+
+> **Why the root `index.html` redirect?** All 9 pages — including the homepage — live together in `webpages/` for a cleaner repo layout. Since static hosts (Vercel, GitHub Pages) serve whatever `index.html` sits at the repo root, a tiny redirect file at the root sends visitors straight to `webpages/index.html` with no visible delay, so the live URL keeps working exactly as before. Every other link between pages is a same-folder sibling reference (`href="products.html"`, etc.) and needed no changes — only the `style.css`, `cart.js`, and image paths were updated to point into `assets/`.
+
+---
+
+## 🚀 Getting Started
+
+No build step or dependencies to install — it's a static site.
+
+1. Clone or download this repository
+2. Open `index.html` in your browser — it redirects straight to `webpages/index.html`
+
+   OR
+
+3. Deploy instantly with **GitHub Pages**:
+   - Go to your repo → **Settings → Pages**
+   - Source: `main` branch, root folder
+   - Your site will be live at `https://<your-username>.github.io/<repo-name>/`
+
+> 📊 **Analytics:** Every page includes the Vercel Web Analytics snippet (`/_vercel/insights/script.js`). It only collects data once the project is deployed on **Vercel** with Analytics enabled in the project's dashboard — it won't report anything on GitHub Pages or when opened locally.
 
 ---
 
 ## 🎨 Design — "Control Panel" UI
 
----
 This isn't a default Bootstrap-blue theme — it's a deliberate visual identity built around the subject matter: a **dark "device control panel" chrome** (navbar + footer) wrapping a bright, calm showroom, with a single warm **ember/amber glow** as the accent color, meant to evoke the glow of a smart device powering on. A cool **teal "signal"** color is reserved for connectivity/status indicators (in-stock pills, online states), separate from the warm action color — borrowed straight from how real smart-home apps (Hue, Nest, Ring) use color to mean something, not just decorate.
 
 - **Typography** — `Space Grotesk` for headings (a little technical, a little geometric — fits "smart" hardware), `Manrope` for body text. Every page now actually renders with these fonts; previously several pages quietly fell back to Arial, and even the pages that *loaded* custom fonts never applied them anywhere.

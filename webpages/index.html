@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home - Modern Smart Devices</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg site-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-glow"><i class="fas fa-bolt"></i></span>
+                Smart Home
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-2">
+                    <a href="profile.html" class="nav-icon-btn" aria-label="My Profile">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="cart.html" class="nav-icon-btn position-relative" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="main">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <span class="eyebrow"><span class="dot"></span> Connected & Ready</span>
+                    <h1 class="fw-bold mb-4">Make your home <span class="accent">quietly smarter.</span></h1>
+                    <p class="lead mb-4">Security, climate, lighting, and more — curated smart devices that work together, controlled from one app, set up in minutes.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="products.html" class="btn btn-primary btn-lg">Shop Now <i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="about.html" class="btn btn-outline-primary btn-lg" style="border-color: rgba(255,255,255,.25); color: #fff;">Our Story</a>
+                    </div>
+                    <div class="hero-chip-row">
+                        <span class="hero-chip"><i class="fas fa-shield-alt me-1"></i> Security</span>
+                        <span class="hero-chip"><i class="fas fa-temperature-low me-1"></i> Climate</span>
+                        <span class="hero-chip"><i class="fas fa-lightbulb me-1"></i> Lighting</span>
+                        <span class="hero-chip"><i class="fas fa-plug me-1"></i> Power</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="hero-visual">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=80" 
+                             alt="Smart Home Devices">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+                <div>
+                    <span class="section-eyebrow">Best Sellers</span>
+                    <h2 class="section-title mb-0">Featured Products</h2>
+                </div>
+                <a href="products.html" class="btn btn-outline-primary">View All Products <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <span class="category-tag">Security</span>
+                            <img src="../assets/images/Smart Security Camera.jpg" alt="Smart Security Camera">
+                        </div>
+                        <div class="product-info">
+                            <span class="status-pill in-stock"><span class="dot"></span> In Stock</span>
+                            <h5 class="product-title">Smart Security Camera Pro</h5>
+                            <div class="price-row">
+                                <span class="product-price">$149.99</span>
+                                <span class="old-price">$199.99</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="product-detail.html?id=1" class="view-details-link">View Details</a>
+                                <button class="btn add-to-cart" data-id="1" aria-label="Add to cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                 <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <span class="category-tag">Climate</span>
+                            <img src="../assets/images/Thermostat.jpg" alt="Smart Thermostat">
+                        </div>
+                        <div class="product-info">
+                            <span class="status-pill in-stock"><span class="dot"></span> In Stock</span>
+                            <h5 class="product-title">Smart Thermostat</h5>
+                            <div class="price-row">
+                                <span class="product-price">$129.99</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="product-detail.html?id=2" class="view-details-link">View Details</a>
+                                <button class="btn add-to-cart" data-id="2" aria-label="Add to cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <span class="category-tag">Lighting</span>
+                            <img src="../assets/images/Led Blubs.jpg" alt="Smart LED Bulbs">
+                        </div>
+                        <div class="product-info">
+                            <span class="status-pill in-stock"><span class="dot"></span> In Stock</span>
+                            <h5 class="product-title">Smart LED Light Bulbs (4 Pack)</h5>
+                            <div class="price-row">
+                                <span class="product-price">$49.99</span>
+                                <span class="old-price">$69.99</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="product-detail.html?id=3" class="view-details-link">View Details</a>
+                                <button class="btn add-to-cart" data-id="3" aria-label="Add to cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <span class="category-tag">Security</span>
+                            <img src="../assets/images/Door Lock.jpg" alt="Smart Door Lock">
+                        </div>
+                        <div class="product-info">
+                            <span class="status-pill low-stock"><span class="dot"></span> Low Stock</span>
+                            <h5 class="product-title">Smart Door Lock</h5>
+                            <div class="price-row">
+                                <span class="product-price">$189.99</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="product-detail.html?id=4" class="view-details-link">View Details</a>
+                                <button class="btn add-to-cart" data-id="4" aria-label="Add to cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Home Features -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-eyebrow d-block">The Difference</span>
+                <h2 class="section-title">Why Choose Smart Home?</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4 class="mt-3 mb-3">Energy Efficient</h4>
+                        <p class="text-muted">Reduce your energy consumption by up to 30% with smart automation and scheduling.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4 class="mt-3 mb-3">Enhanced Security</h4>
+                        <p class="text-muted">Monitor and control your home security from anywhere using your smartphone.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="mt-3 mb-3">24/7 Support</h4>
+                        <p class="text-muted">Our technical support team is available round the clock to assist you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="fas fa-bolt"></i> Smart Home</h5>
+                    <p>Making homes smarter, safer, and more efficient with cutting-edge technology.</p>
+                    <div class="social-icons mt-3 d-flex gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="products.html">Products</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="faqs.html">FAQs</a></li>
+                        <li class="mb-2"><a href="profile.html">My Account</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Smart Street, Tech City</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
+                    <p class="mb-3"><i class="fas fa-envelope me-2"></i> support@smarthome.com</p>
+                    <div class="newsletter">
+                        <h6>Subscribe to Newsletter</h6>
+                        <div class="input-group mt-2">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Smart Home. All rights reserved. | 
+                    <a href="#" class="ms-2">Privacy Policy</a> | 
+                    <a href="#" class="ms-2">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add to cart functionality for featured products
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    addToCart(productId, 1);
+                });
+            });
+
+            // Newsletter subscription
+            document.querySelector('.newsletter button').addEventListener('click', function() {
+                const email = document.querySelector('.newsletter input').value;
+                if (email) {
+                    showAlert('Thank you for subscribing to our newsletter!', 'success');
+                    document.querySelector('.newsletter input').value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

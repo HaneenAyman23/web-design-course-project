@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Smart Home</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Smart Home Colors */
+        :root {
+            --primary: #e8862e;     
+            --secondary: #1fb6a4;  
+            --dark: #14161c;       
+            --light: #f7f7f5;      
+            --light-blue: #fbe9d8; 
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            padding-top: 70px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            color: var(--primary) !important;
+            font-weight: bold;
+        }
+        
+        /* FAQ Header */
+        .faq-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .faq-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        /* Search Box */
+        .search-box {
+            max-width: 600px;
+            margin: 20px auto 30px;
+        }
+        
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px 0 0 50px;
+        }
+        
+        .search-box button {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 0 50px 50px 0;
+            font-weight: 500;
+        }
+        
+        /* FAQ Sections */
+        .faq-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-blue);
+        }
+        
+        /* Accordion */
+        .accordion-item {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .accordion-button {
+            background: white;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 15px;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background: var(--light-blue);
+            color: var(--primary);
+        }
+        
+        .accordion-body {
+            padding: 15px;
+            color: #555;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px 0;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        /* Message Box */
+        .message {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg site-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-glow"><i class="fas fa-bolt"></i></span>
+                Smart Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="faqs.html">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="profile.html" class="nav-icon-btn" aria-label="My Profile">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="cart.html" class="nav-icon-btn position-relative" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Header -->
+    <section class="faq-header" id="main">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about Smart Home</p>
+            
+            <!-- Simple Search Box -->
+            <div class="search-box">
+                <div class="d-flex justify-content-center">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search questions..." style="max-width: 400px;">
+                    <button class="btn btn-primary" onclick="searchFAQ()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container py-4">
+        <!-- Setup & Installation FAQ -->
+        <div class="faq-section">
+            <h3 class="section-title">
+                <i class="fas fa-tools me-2"></i> Setup & Installation
+            </h3>
+            
+            <div class="accordion" id="setupAccordion">
+                <div class="accordion-item">
+                    <button class="accordion-button" type="button" onclick="toggleAccordion('setup1')">
+                        How do I set up my first smart home device?
+                    </button>
+                    <div id="setup1" class="accordion-body" style="display: none;">
+                        <p><strong>Setting up is easy:</strong></p>
+                        <ol>
+                            <li>Download the Smart Home app</li>
+                            <li>Create an account</li>
+                            <li>Plug in your device</li>
+                            <li>Follow app instructions</li>
+                            <li>Connect to Wi-Fi</li>
+                        </ol>
+                        <p>Most devices are ready in 5 minutes!</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-button" type="button" onclick="toggleAccordion('setup2')">
+                        Do I need special wiring for smart lights?
+                    </button>
+                    <div id="setup2" class="accordion-body" style="display: none;">
+                        <p><strong>No special wiring needed!</strong> Just screw in smart bulbs like regular bulbs. Keep the light switch ON and control through the app.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compatibility FAQ -->
+        <div class="faq-section">
+            <h3 class="section-title">
+                <i class="fas fa-link me-2"></i> Compatibility
+            </h3>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-button" type="button" onclick="toggleAccordion('comp1')">
+                        Which voice assistants work with your products?
+                    </button>
+                    <div id="comp1" class="accordion-body" style="display: none;">
+                        <p>Our products work with:</p>
+                        <div class="d-flex gap-4 mt-3 justify-content-center">
+                            <div class="text-center">
+                                <i class="fab fa-amazon fa-2x text-warning"></i>
+                                <p class="small mt-2">Alexa</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fab fa-google fa-2x text-primary"></i>
+                                <p class="small mt-2">Google</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fab fa-apple fa-2x text-dark"></i>
+                                <p class="small mt-2">HomeKit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Troubleshooting FAQ -->
+        <div class="faq-section">
+            <h3 class="section-title">
+                <i class="fas fa-wrench me-2"></i> Troubleshooting
+            </h3>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-button" type="button" onclick="toggleAccordion('trouble1')">
+                        My device won't connect to Wi-Fi
+                    </button>
+                    <div id="trouble1" class="accordion-body" style="display: none;">
+                        <p><strong>Try these steps:</strong></p>
+                        <ol>
+                            <li>Restart device and router</li>
+                            <li>Use 2.4GHz Wi-Fi (not 5GHz)</li>
+                            <li>Move closer to router</li>
+                            <li>Check password</li>
+                            <li>Factory reset device</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping & Returns FAQ -->
+        <div class="faq-section">
+            <h3 class="section-title">
+                <i class="fas fa-shipping-fast me-2"></i> Shipping & Returns
+            </h3>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-button" type="button" onclick="toggleAccordion('shipping1')">
+                        What is your return policy?
+                    </button>
+                    <div id="shipping1" class="accordion-body" style="display: none;">
+                        <p><strong>30-day return policy:</strong> Return any item in original condition for full refund.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-button" type="button" onclick="toggleAccordion('shipping2')">
+                        How long does shipping take?
+                    </button>
+                    <div id="shipping2" class="accordion-body" style="display: none;">
+                        <p><strong>Shipping times:</strong></p>
+                        <ul>
+                            <li>Standard: 3-7 days (Free over $50)</li>
+                            <li>Express: 1-3 days ($9.99)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="fas fa-bolt"></i> Smart Home</h5>
+                    <p class="small">Smart home solutions since 2024</p>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <div>
+                        <a href="index.html" class="d-block mb-2">Home</a>
+                        <a href="products.html" class="d-block mb-2">Products</a>
+                        <a href="faqs.html" class="d-block mb-2">FAQ</a>
+                        <a href="about.html" class="d-block">About</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <h5>Contact</h5>
+                    <p class="small mb-1"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
+                    <p class="small"><i class="fas fa-envelope me-2"></i> support@smarthome.com</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p class="small">&copy; 2024 Smart Home. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Message Box -->
+    <div id="messageBox" class="message"></div>
+
+    <!-- Bootstrap JS (needed for the mobile navbar toggle) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script>
+        // 1. Toggle accordion (show/hide answers)
+        function toggleAccordion(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === 'block') {
+                element.style.display = 'none';
+            } else {
+                element.style.display = 'block';
+            }
+        }
+        
+        // 2. Simple search function
+        function searchFAQ() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (!searchTerm) {
+                showMessage('Please enter a search term', 'info');
+                return;
+            }
+            
+            // Find matching questions
+            let found = false;
+            const buttons = document.querySelectorAll('.accordion-button');
+            
+            buttons.forEach(button => {
+                const question = button.textContent.toLowerCase();
+                if (question.includes(searchTerm)) {
+                    // Show this answer
+                    const targetId = button.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    const answer = document.getElementById(targetId);
+                    
+                    if (answer) {
+                        answer.style.display = 'block';
+                        button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        found = true;
+                    }
+                }
+            });
+            
+            if (found) {
+                showMessage('Found matching questions', 'success');
+            } else {
+                showMessage('No results found', 'warning');
+            }
+        }
+        
+        // 3. Show message function
+        function showMessage(text, type) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = text;
+            
+            // Set color based on type
+            if (type === 'success') {
+                messageBox.style.background = '#28a745';
+            } else if (type === 'warning') {
+                messageBox.style.background = '#ffc107';
+                messageBox.style.color = '#000';
+            } else {
+                messageBox.style.background = '#17a2b8';
+            }
+            
+            // Show message
+            messageBox.style.display = 'block';
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 3000);
+        }
+        
+        // 4. Allow Enter key to search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchFAQ();
+            }
+        });
+        
+        // 5. Initialize - no errors here
+        console.log('FAQ page loaded successfully');
+    </script>
+</body>
+</html>

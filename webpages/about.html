@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Smart Home</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Additional styles for About page */
+        .about-hero {
+            background: linear-gradient(rgba(9, 132, 227, 0.9), rgba(0, 184, 148, 0.9)), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid white;
+        }
+        
+        .timeline-year {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .tech-icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .tech-icon {
+            text-align: center;
+            padding: 20px 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .team-card {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid #f8f9fa;
+        }
+        
+        .team-social {
+            margin-top: 15px;
+        }
+        
+        .team-social a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 50%;
+            margin: 0 5px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .value-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Navigation (same as index.html) -->
+    <nav class="navbar navbar-expand-lg site-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-glow"><i class="fas fa-bolt"></i></span>
+                Smart Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="profile.html" class="nav-icon-btn" aria-label="My Profile">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="cart.html" class="nav-icon-btn position-relative" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="mt-5 pt-4" id="main">
+        <!-- Modern Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto text-center">
+                        <h1 class="display-4 fw-bold mb-4">Redefining Home Living Through Innovation</h1>
+                        <p class="lead fs-4 mb-5">We're on a mission to transform houses into intelligent, efficient, and secure living spaces for everyone.</p>
+                        <a href="#our-story" class="btn btn-light btn-lg px-5">
+                            <i class="fas fa-arrow-down me-2"></i>Explore Our Journey
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="stat-card">
+                            <span class="stat-number">10,000+</span>
+                            <h5>Homes Transformed</h5>
+                            <p class="text-muted mb-0">Smart homes powered by our solutions</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="stat-card">
+                            <span class="stat-number">98%</span>
+                            <h5>Customer Satisfaction</h5>
+                            <p class="text-muted mb-0">Based on verified reviews</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="stat-card">
+                            <span class="stat-number">24/7</span>
+                            <h5>Expert Support</h5>
+                            <p class="text-muted mb-0">Technical assistance available</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="stat-card">
+                            <span class="stat-number">50+</span>
+                            <h5>Smart Products</h5>
+                            <p class="text-muted mb-0">Curated for your home</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story with Timeline -->
+        <section id="our-story" class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <h2 class="section-title mb-4">Our Journey in Smart Home Innovation</h2>
+                        <p class="mb-4">What started as a passion project in a garage has evolved into a leading force in smart home technology. Our founders, tech enthusiasts frustrated by complex, incompatible systems, set out to create a different kind of smart home company.</p>
+                        <p class="mb-4">Today, Smart Home stands as a testament to what happens when innovation meets practicality. We've helped thousands of families experience the future of home living—today.</p>
+                        
+                        <div class="timeline mt-5">
+                            <div class="timeline-item">
+                                <div class="timeline-year">2020</div>
+                                <h5>The Beginning</h5>
+                                <p>Founded with a mission to simplify smart home technology. Launched our first 5 curated products.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2021</div>
+                                <h5>Rapid Growth</h5>
+                                <p>Expanded product line to 25+ devices. Reached 1,000+ smart home installations.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2023</div>
+                                <h5>Innovation Award</h5>
+                                <p>Received "Most Innovative Smart Home Solution" award at Tech Excellence Summit.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2024</div>
+                                <h5>Global Expansion</h5>
+                                <p>Launched in 5 new countries with localized smart home solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Smart Home Control Center" class="img-fluid rounded-3 shadow-lg mb-4">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Smart Living Room" class="img-fluid rounded-3 shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Technology We Use -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Powering Smart Homes With</h2>
+                
+                <div class="tech-icon-grid">
+                    <div class="tech-icon">
+                        <i class="fab fa-google"></i>
+                        <h6>Google Home</h6>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-amazon"></i>
+                        <h6>Amazon Alexa</h6>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-apple"></i>
+                        <h6>Apple HomeKit</h6>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-wifi"></i>
+                        <h6>Wi-Fi 6</h6>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-bolt"></i>
+                        <h6>Zigbee</h6>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-satellite"></i>
+                        <h6>Z-Wave</h6>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h6>iOS/Android</h6>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-cloud"></i>
+                        <h6>Cloud AI</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Meet Our Leadership</h2>
+                <p class="text-center text-muted mb-5">A team of visionaries, engineers, and design thinkers passionate about smart living.</p>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Alex Morgan" class="team-img">
+                            <h4>Alex Morgan</h4>
+                            <p class="text-primary fw-bold">CEO & Founder</p>
+                            <p class="text-muted small">Former IoT engineer with 15+ years in home automation</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Sarah Chen" class="team-img">
+                            <h4>Sarah Chen</h4>
+                            <p class="text-primary fw-bold">Chief Technology Officer</p>
+                            <p class="text-muted small">PhD in Computer Science, smart home security expert</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-medium"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Marcus Rivera" class="team-img">
+                            <h4>Marcus Rivera</h4>
+                            <p class="text-primary fw-bold">Product Director</p>
+                            <p class="text-muted small">User experience specialist with focus on intuitive design</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-5 bg-primary text-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h2 class="display-6 fw-bold mb-3">Ready to Transform Your Home?</h2>
+                        <p class="lead mb-0">Join thousands of happy customers who've made the smart switch.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="products.html" class="btn btn-light btn-lg px-5">
+                            <i class="fas fa-shopping-cart me-2"></i>Shop Smart Products
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="site-footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="fas fa-bolt"></i> Smart Home</h5>
+                    <p>Making homes smarter, safer, and more efficient with cutting-edge technology.</p>
+                    <div class="social-icons mt-3 d-flex gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="products.html">Products</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Smart Street, Tech City</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
+                    <p class="mb-3"><i class="fas fa-envelope me-2"></i> support@smarthome.com</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Smart Home. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script>
+        // Simple animation for stats
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stats on scroll
+            const stats = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stat = entry.target;
+                        const targetNumber = parseInt(stat.textContent);
+                        let currentNumber = 0;
+                        const increment = targetNumber / 50;
+                        const timer = setInterval(() => {
+                            currentNumber += increment;
+                            if (currentNumber >= targetNumber) {
+                                currentNumber = targetNumber;
+                                clearInterval(timer);
+                            }
+                            stat.textContent = Math.floor(currentNumber) + (stat.textContent.includes('%') ? '%' : '+');
+                        }, 30);
+                        observer.unobserve(stat);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            stats.forEach(stat => observer.observe(stat));
+        });
+    </script>
+</body>
+</html>

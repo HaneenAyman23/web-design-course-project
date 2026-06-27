@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Smart Home</title>
+    <!-- Bootstrap CSS (for the shared nav/footer + toast notification) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        
+        .profile-shell {
+            max-width: 800px;
+            margin: 110px auto 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .back-link {
+            color: #b4621a;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .page-title {
+            font-size: 28px;
+            margin: 20px 0;
+            color: #222;
+        }
+        
+        /* Profile Header */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #e8862e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 15px;
+        }
+        
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .profile-email {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* Sections */
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #222;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Info Items */
+        .info-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .info-label {
+            width: 150px;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .info-value {
+            flex: 1;
+            color: #222;
+        }
+        
+        /* Buttons */
+        .btn {
+            background: #e8862e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background: #ffa64d;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+            padding: 20px;
+        }
+        
+        /* Simple Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tab.active {
+            background: #e8862e;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg site-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-glow"><i class="fas fa-bolt"></i></span>
+                Smart Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faqs.html">FAQs</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="profile.html" class="nav-icon-btn" aria-label="My Profile">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="cart.html" class="nav-icon-btn position-relative" aria-label="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-shell" id="main">
+        <!-- Back Link -->
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <!-- Page Title -->
+        <h1 class="page-title">My Profile</h1>
+        
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-pic">
+                JS
+            </div>
+            <div class="profile-name">John Smith</div>
+            <div class="profile-email">john.smith@email.com</div>
+            <button class="btn" onclick="editProfile()">Edit Profile</button>
+        </div>
+        
+        <!-- Simple Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('personal')">Personal Info</button>
+            <button class="tab" onclick="showTab('orders')">My Orders</button>
+            <button class="tab" onclick="showTab('saved')">Saved Items</button>
+            <button class="tab" onclick="showTab('settings')">Settings</button>
+        </div>
+        
+        <!-- Personal Info Tab -->
+        <div id="personal" class="tab-content active">
+            <div class="section">
+                <div class="section-title">📋 Personal Information</div>
+                
+                <div class="info-item">
+                    <div class="info-label">Full Name:</div>
+                    <div class="info-value">John Smith</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">Email:</div>
+                    <div class="info-value">john.smith@email.com</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">Phone:</div>
+                    <div class="info-value">(555) 123-4567</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">Member Since:</div>
+                    <div class="info-value">March 15, 2023</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">🏠 Address</div>
+                
+                <div class="info-item">
+                    <div class="info-label">Shipping Address:</div>
+                    <div class="info-value">
+                        123 Main Street<br>
+                        New York, NY 10001<br>
+                        United States
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="editAddress()">Edit Address</button>
+            </div>
+        </div>
+        
+        <!-- Orders Tab -->
+        <div id="orders" class="tab-content">
+            <div class="section">
+                <div class="section-title">📦 Recent Orders</div>
+                
+                <div class="info-item">
+                    <div class="info-label">Order #SH-2024-001:</div>
+                    <div class="info-value">
+                        Smart Security Camera × 2<br>
+                        <small>Placed: March 10, 2024 • Status: Delivered</small>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">Order #SH-2024-002:</div>
+                    <div class="info-value">
+                        Smart Thermostat × 1<br>
+                        <small>Placed: Feb 28, 2024 • Status: Shipped</small>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="viewAllOrders()">View All Orders</button>
+            </div>
+        </div>
+        
+        <!-- Saved Items Tab -->
+        <div id="saved" class="tab-content">
+            <div class="section">
+                <div class="section-title">❤️ Saved Items</div>
+
+                <div class="info-item">
+                    <div class="info-label">Smart Speaker</div>
+                    <div class="info-value">
+                        $99.99
+                        <button class="btn" onclick="moveToCart('Smart Speaker', 5)" style="margin-left: 20px; padding: 5px 10px; font-size: 14px;">
+                            Move to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Robot Vacuum</div>
+                    <div class="info-value">
+                        $299.99
+                        <button class="btn" onclick="moveToCart('Robot Vacuum', 6)" style="margin-left: 20px; padding: 5px 10px; font-size: 14px;">
+                            Move to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Settings Tab -->
+        <div id="settings" class="tab-content">
+            <div class="section">
+                <div class="section-title">⚙️ Account Settings</div>
+                
+                <div class="info-item">
+                    <div class="info-label">Password:</div>
+                    <div class="info-value">
+                        Last changed 30 days ago
+                        <button class="btn" onclick="changePassword()" style="margin-left: 20px; padding: 5px 10px; font-size: 14px;">
+                            Change
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">Notifications:</div>
+                    <div class="info-value">
+                        Email notifications enabled
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="logout()" style="background: #ff4757; margin-top: 20px;">
+                    Log Out
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="fas fa-bolt"></i> Smart Home</h5>
+                    <p class="small mb-0">Making homes smarter, safer, and more efficient.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <div>
+                        <a href="index.html" class="d-block mb-2">Home</a>
+                        <a href="products.html" class="d-block mb-2">Products</a>
+                        <a href="about.html" class="d-block mb-2">About</a>
+                        <a href="faqs.html" class="d-block">FAQs</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact</h5>
+                    <p class="small mb-1"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</p>
+                    <p class="small mb-0"><i class="fas fa-envelope me-2"></i> support@smarthome.com</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="small mb-0">© 2024 Smart Home. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SIMPLE JAVASCRIPT - 5 FUNCTIONS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script>
+        // 1. Show different tabs
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Mark button as active
+            event.target.classList.add('active');
+        }
+        
+        // 2. Edit profile
+        function editProfile() {
+            const newName = prompt("Enter your new name:", "John Smith");
+            if (newName) {
+                document.querySelector('.profile-name').textContent = newName;
+                document.querySelector('.info-item .info-value').textContent = newName;
+                alert("Profile updated!");
+            }
+        }
+        
+        // 3. Edit address
+        function editAddress() {
+            alert("Address editing would open here");
+        }
+        
+        // 4. Change password
+        function changePassword() {
+            alert("Password change would open here");
+        }
+        
+        // 5. Logout
+        function logout() {
+            if (confirm("Are you sure you want to log out?")) {
+                alert("Logged out successfully!");
+                // In real site: window.location.href = "index.html";
+            }
+        }
+        
+        // 6. View all orders
+        function viewAllOrders() {
+            alert("Viewing all orders");
+        }
+
+        // 7. Move a saved item into the cart
+        function moveToCart(name, productId) {
+            addToCart(productId, 1);
+        }
+    </script>
+</body>
+</html>
